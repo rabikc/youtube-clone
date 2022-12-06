@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
 *,
 *::before,
 *::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Roboto, Arial, sans-serif;
 }
 
 :root {
@@ -13,6 +16,8 @@
   --darker-bg-color: rgb(18 18 18);
   --search-border-color: hsl(0, 0%, 18.8%);
   --search-bg-color: hsl(0, 0%, 100%, 0.08);
+  --white-text: #fff;
+  --light-border-10: rgba(255 255 255 / 0.1);
 }
 
 a {
@@ -53,7 +58,6 @@ button svg .yt-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* gap: 1rem; */
 }
 
 .nav-left.nav-sub-container .btn-wrapper {
@@ -182,6 +186,66 @@ button svg .yt-icon {
 
 .sidebar-content {
   padding-top: 12px;
+  /* overflow-y: scroll; */
+}
+
+.sidebar-content a,
+.sidebar-content button {
+  color: var(--white-text);
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  width: 100%;
+  height: 100%;
+  gap: 1.5rem;
+}
+
+.sidebar-content .svg-wrapper {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar-content .svg-wrapper path {
+  fill: var(--white-text);
+}
+
+.sidebar-content a:hover,
+.sidebar-content button:hover {
+  background-color: rgba(255 255 255 / 0.1);
+}
+
+.sidebar-content .main-links {
+  padding-bottom: 12px;
+}
+
+.sidebar-content .main-links li {
+  display: inline-block;
+  width: 100%;
+}
+
+.sidebar-content .main-links li:first-child a {
+  font-weight: 500;
+  background-color: rgba(255 255 255 / 0.1);
+}
+
+.sidebar-content .main-links li:first-child a:hover {
+  background-color: rgba(255 255 255 / 0.2);
+}
+
+.sidebar-content .secondary-links {
+  border-top: 1px solid var(--light-border-10);
+  padding: 12px 0;
+}
+
+.sidebar-content .btn-wrapper {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .browse-section {
