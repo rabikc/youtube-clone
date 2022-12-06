@@ -25,6 +25,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 button {
   background-color: transparent;
   border: none;
@@ -186,7 +190,8 @@ button svg .yt-icon {
 
 .sidebar-content {
   padding-top: 12px;
-  /* overflow-y: scroll; */
+  max-height: calc(100vh - (56px + 12px));
+  overflow-y: scroll;
 }
 
 .sidebar-content a,
@@ -204,13 +209,21 @@ button svg .yt-icon {
   gap: 1.5rem;
 }
 
-.sidebar-content .svg-wrapper {
+.sidebar-content .svg-wrapper,
+.sidebar-content .img-wrapper,
+.sidebar-content .filled-svg-wrapper {
   width: 24px;
   height: 24px;
 }
 
 .sidebar-content .svg-wrapper path {
   fill: var(--white-text);
+}
+
+.sidebar-content .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .sidebar-content a:hover,
@@ -241,6 +254,11 @@ button svg .yt-icon {
   padding: 12px 0;
 }
 
+.sidebar-content .extra-links {
+  border-top: 1px solid var(--light-border-10);
+  padding: 8px 0;
+}
+
 .sidebar-content .btn-wrapper {
   height: 40px;
   display: flex;
@@ -248,8 +266,62 @@ button svg .yt-icon {
   width: 100%;
 }
 
+.sidebar-content .sidebar-footer {
+  border-top: 1px solid var(--light-border-10);
+}
+
+.sidebar-content .sidebar-footer ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  row-gap: 0.2rem;
+  padding: 1rem 1.5rem 0rem;
+}
+
+.sidebar-footer a {
+  padding: 0;
+  font-size: 0.8rem;
+  color: var(--secondary-text);
+  font-weight: 500;
+  min-height: fit-content;
+}
+.sidebar-footer a:hover {
+  background-color: transparent;
+}
+
+.sidebar-content .extra-links h3 {
+  color: var(--secondary-text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.sidebar-content .copyright-section {
+  padding: 1rem 1.5rem;
+  color: #717171;
+  font-size: 12px;
+}
+
+.sidebar-content::-webkit-scrollbar {
+  width: 0px;
+}
+
+.sidebar-content:hover::-webkit-scrollbar {
+  width: 9px;
+}
+
+.sidebar-content::-webkit-scrollbar-track {
+  border-radius: 12px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
+
 .browse-section {
   background-color: var(--dark-bg);
-  width: 100vw;
-  height: 100vh;
+  margin: 56px 0 0 240px;
 }
