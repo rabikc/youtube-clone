@@ -38,6 +38,11 @@ button {
   cursor: pointer;
 }
 
+.svg-wrapper {
+  height: 24px;
+  width: 24px;
+}
+
 button svg .yt-icon {
   fill: #fff;
 }
@@ -327,15 +332,18 @@ button svg .yt-icon {
 .browse-section {
   background-color: var(--dark-bg);
   margin: 56px 0 0 240px;
-  width: calc(100vw - 240px);
+  max-width: calc(100vw - 240px);
   min-height: calc(100vh - 56px);
 }
+
+/******** BROWSE HEADER *******/
 
 .browse-header {
   background-color: var(--light-dark-bg);
   border-top: 1px solid var(--light-border-10);
   border-bottom: 1px solid var(--light-border-10);
   z-index: 2022;
+  position: fixed;
 }
 
 .browse-header .container {
@@ -406,15 +414,24 @@ button svg .yt-icon {
   margin-left: 1.5rem;
 }
 
-.browse-content {
+/****** BROWSE SECTION ******/
+
+.top-browse-content {
   margin-top: 1.5rem;
 }
 
 .browse-content .grid-items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 375px));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 375px));
   place-content: center;
 }
+
+/* .browse-content .grid-items {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+} */
 
 .browse-content > .container {
   padding: 0 1rem;
@@ -427,10 +444,23 @@ button svg .yt-icon {
 .browse-content .single-grid-item {
   padding: 0px 0.5rem 1rem;
   color: var(--secondary-text);
+  margin-bottom: 40px;
+  /* flex: 1 1 250px;
+  width: 25%;
+  max-width: 375px;
+  min-width: 250px; */
 }
 
 .browse-content .single-grid-item > .img-wrapper {
   position: relative;
+  /* outline: 1px solid white; */
+}
+
+.browse-content .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* outline: 1px solid white; */
 }
 
 .browse-content .single-grid-item .time-length,
@@ -442,7 +472,7 @@ button svg .yt-icon {
   font-weight: 500;
   position: absolute;
   right: 4px;
-  bottom: 4px;
+  bottom: 8px;
   z-index: 10;
   border-radius: 2px;
 }
@@ -511,6 +541,7 @@ button svg .yt-icon {
   position: absolute;
   z-index: 11;
   inset: 0;
+  bottom: 4px;
   top: 0;
   background: rgba(0 0 0 / 0.8);
   display: grid;
@@ -533,11 +564,126 @@ button svg .yt-icon {
   font-weight: 500;
 }
 
-.single-grid-item .hover-effect .svg-wrapper {
+.single-grid-item .svg-wrapper {
   width: 24px;
   height: 24px;
 }
 
+.single-grid-item .bottom-overlay {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: fit-content;
+  background-color: rgba(89, 65, 62, 0.8);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+}
+
+.single-grid-item .bottom-overlay .svg-wrapper {
+  display: flex;
+
+  justify-content: center;
+}
+
 .single-grid-item .svg-wrapper path {
   fill: var(--white-text);
+}
+
+/******** SHORTS SECTION *******/
+
+.shorts-section .container {
+  margin: 0 1.5rem;
+  border-top: 4px solid var(--search-border-color);
+  border-bottom: 4px solid var(--search-border-color);
+}
+
+.shorts-section .section-title {
+  margin: 1.5rem 0 1.5rem 0;
+  padding-left: 0.5rem;
+  color: var(--white-text);
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25rem;
+}
+
+.shorts-section .section-title .left {
+  display: flex;
+  font-size: inherit;
+  font-weight: inherit;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 18px;
+}
+
+.shorts-section .grid-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+}
+
+.shorts-section .grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.shorts-section .single-item {
+  flex: 1 1 150px;
+  max-width: 320px;
+  min-width: 150px;
+  margin-bottom: 1.25rem;
+}
+
+.shorts-section .single-item .content {
+  padding-top: 0.5rem;
+}
+
+.shorts-section .single-item a {
+  color: var(--white-text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.shorts-section .single-item img {
+  width: 100%;
+}
+
+.shorts-section .single-item .short-title {
+  display: flex;
+}
+
+.shorts-section .single-item .options-btn {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.shorts-section .single-item:hover .options-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+.shorts-section .single-item .views {
+  color: var(--secondary-text);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.shorts-section .see-more-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.shorts-section .see-more-btn:hover {
+  background-color: var(--light-btn-bg);
+}
+
+.browse-content.after-shorts {
+  margin-top: 2.5rem;
 }
