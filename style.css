@@ -38,7 +38,8 @@ button {
   cursor: pointer;
 }
 
-.svg-wrapper {
+.svg-wrapper,
+.filled-svg-wrapper {
   height: 24px;
   width: 24px;
 }
@@ -245,9 +246,7 @@ button svg .yt-icon {
   gap: 1.5rem;
 }
 
-.sidebar-content .svg-wrapper,
-.sidebar-content .img-wrapper,
-.sidebar-content .filled-svg-wrapper {
+.sidebar-content .img-wrapper {
   width: 24px;
   height: 24px;
 }
@@ -513,19 +512,16 @@ button svg .yt-icon {
 }
 
 .browse-content .single-grid-item .user-img-wrapper {
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
 }
 
 .browse-content .single-grid-item .item-title {
   display: flex;
 }
 
-.browse-content .single-grid-item h1 {
+.browse-content .single-grid-item .item-title > a {
   margin-bottom: 0.25rem;
-}
-
-.browse-content .single-grid-item h1 a {
   font-size: 1rem;
   color: var(--white-text);
   font-weight: 500;
@@ -629,11 +625,17 @@ button svg .yt-icon {
 }
 
 /******** SHORTS SECTION *******/
+.shorts-section {
+  display: flex;
+  justify-content: center;
+}
 
 .shorts-section .container {
+  width: fit-content;
   margin: 0 1.5rem;
   border-top: 4px solid var(--search-border-color);
   border-bottom: 4px solid var(--search-border-color);
+  max-width: 1480px;
 }
 
 .shorts-section .section-title {
@@ -662,15 +664,15 @@ button svg .yt-icon {
 
 .shorts-section .grid-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
 .shorts-section .single-item {
-  flex: 1 1 150px;
-  max-width: 320px;
+  flex: 1 1 120px;
+  max-width: 220px;
   min-width: 150px;
   margin-bottom: 1.25rem;
 }
@@ -680,9 +682,14 @@ button svg .yt-icon {
 }
 
 .shorts-section .single-item a {
+  --max-lines: 2;
   color: var(--white-text);
   font-size: 14px;
   font-weight: 500;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
 }
 
 .shorts-section .single-item img {
@@ -742,5 +749,11 @@ button svg .yt-icon {
     flex: 1 1 330px;
     max-width: 380px;
     min-width: 330px;
+  }
+}
+
+@media screen and (min-width: 1800px) and (max-width: 1952px) {
+  .shorts-section .container {
+    max-width: 1485px;
   }
 }

@@ -16,3 +16,6 @@ const menuToggle = () => {
     browseSection.style.marginLeft = "240px";
   }
 };
+
+var shortsContainer = document.querySelector(".shorts-section .container");
+console.log(shortsContainer.offsetWidth);
